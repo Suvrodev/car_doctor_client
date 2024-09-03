@@ -7,11 +7,11 @@
   background-color: #242424;
 }
 .pColor {
-  background-color: #ff3811;
+  background-color: #ff3811 !important;
 }
 .pText {
-  color: #ff3811;
+  color: #ff3811 !important;
 }
 .pBorder {
-  border-color: #ff3811;
+  border-color: #ff3811 !important;
 }
