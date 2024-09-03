@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ServiceCard from "./ServiceCard";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Service = () => {
+  const { baseUrl } = useContext(AuthContext);
   const [services, setServices] = useState([]);
 
   ///Seach And Sort Start
@@ -18,10 +20,12 @@ const Service = () => {
   ///Search And Sort End
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services?search=${search}`)
+    fetch(`${baseUrl}/services?search=${search}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [search]);
+
+  //   console.log("Service: ", services);
 
   return (
     <div className="mt-4">
