@@ -7,15 +7,13 @@ const Header = () => {
   const { user, Logout_ } = useContext(AuthContext);
 
   const navItems = (
-    <div className="lg:flex items-center justify-center ">
-      <li className="">
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
+    <div className="flex flex-col md:flex-row items-start md:items-center justify-normal md:justify-center gap-5 ">
+      <Link to="/">Home</Link>
+
+      <Link to="/about">About</Link>
+
       {user ? (
-        <div className="flex items-center justify-center gap-5 ">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-5 ">
           <Link to={"/booking"}>Bookings</Link>{" "}
           {user.photoURL && (
             <img className="w-10 h-10 rounded-full" src={user.photoURL}></img>
@@ -28,9 +26,9 @@ const Header = () => {
           </button>{" "}
         </div>
       ) : (
-        <li>
+        <p>
           <Link to="/login">Login</Link>
-        </li>
+        </p>
       )}
     </div>
   );
