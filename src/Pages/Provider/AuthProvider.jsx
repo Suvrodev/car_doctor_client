@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
 
+  //   const baseUrl = "http://localhost:5000";
   const baseUrl = "https://car-doctor-server-eight-sable.vercel.app";
   // Login By Google start
   const googleProvider = new GoogleAuthProvider();

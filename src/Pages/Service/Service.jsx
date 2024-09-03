@@ -9,7 +9,7 @@ const Service = () => {
   ///Seach And Sort Start
 
   ///Search
-  const [asc, setAsc] = useState(true);
+  const [asc, setAsc] = useState(false);
   const [search, setSearch] = useState("");
   const searchRef = useRef("");
   const handleSearch = (event) => {
@@ -20,10 +20,10 @@ const Service = () => {
   ///Search And Sort End
 
   useEffect(() => {
-    fetch(`${baseUrl}/services?search=${search}`)
+    fetch(`${baseUrl}/services?search=${search}&sort=${asc ? "asc" : "des"}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
-  }, [search]);
+  }, [search, asc]);
 
   //   console.log("Service: ", services);
 
@@ -70,13 +70,13 @@ const Service = () => {
         </div>
         {/* Search End */}
 
-        <button className="btn btn-primary mt-10">
+        <button className="btn btn-primary mt-10" onClick={() => setAsc(!asc)}>
           {" "}
           {asc ? "Low to High" : "High to Low"}{" "}
         </button>
       </div>
 
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
