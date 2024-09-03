@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+.pColor {
+  background-color: #ff3811;
+}
+.pText {
+  color: #ff3811;
+}
+.pBorder {
+  border-color: #ff3811;
+}
